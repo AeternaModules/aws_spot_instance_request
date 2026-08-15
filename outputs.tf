@@ -20,15 +20,15 @@ output "spot_instance_requests_availability_zone" {
 }
 output "spot_instance_requests_capacity_reservation_specification" {
   description = "Map of capacity_reservation_specification values across all spot_instance_requests, keyed the same as var.spot_instance_requests"
-  value       = { for k, v in aws_spot_instance_request.spot_instance_requests : k => v.capacity_reservation_specification if v.capacity_reservation_specification != null && length(v.capacity_reservation_specification) > 0 }
+  value       = { for k, v in aws_spot_instance_request.spot_instance_requests : k => one(v.capacity_reservation_specification) if v.capacity_reservation_specification != null && length(v.capacity_reservation_specification) > 0 }
 }
 output "spot_instance_requests_cpu_options" {
   description = "Map of cpu_options values across all spot_instance_requests, keyed the same as var.spot_instance_requests"
-  value       = { for k, v in aws_spot_instance_request.spot_instance_requests : k => v.cpu_options if v.cpu_options != null && length(v.cpu_options) > 0 }
+  value       = { for k, v in aws_spot_instance_request.spot_instance_requests : k => one(v.cpu_options) if v.cpu_options != null && length(v.cpu_options) > 0 }
 }
 output "spot_instance_requests_credit_specification" {
   description = "Map of credit_specification values across all spot_instance_requests, keyed the same as var.spot_instance_requests"
-  value       = { for k, v in aws_spot_instance_request.spot_instance_requests : k => v.credit_specification if v.credit_specification != null && length(v.credit_specification) > 0 }
+  value       = { for k, v in aws_spot_instance_request.spot_instance_requests : k => one(v.credit_specification) if v.credit_specification != null && length(v.credit_specification) > 0 }
 }
 output "spot_instance_requests_disable_api_stop" {
   description = "Map of disable_api_stop values across all spot_instance_requests, keyed the same as var.spot_instance_requests"
@@ -52,7 +52,7 @@ output "spot_instance_requests_enable_primary_ipv6" {
 }
 output "spot_instance_requests_enclave_options" {
   description = "Map of enclave_options values across all spot_instance_requests, keyed the same as var.spot_instance_requests"
-  value       = { for k, v in aws_spot_instance_request.spot_instance_requests : k => v.enclave_options if v.enclave_options != null && length(v.enclave_options) > 0 }
+  value       = { for k, v in aws_spot_instance_request.spot_instance_requests : k => one(v.enclave_options) if v.enclave_options != null && length(v.enclave_options) > 0 }
 }
 output "spot_instance_requests_ephemeral_block_device" {
   description = "Map of ephemeral_block_device values across all spot_instance_requests, keyed the same as var.spot_instance_requests"
@@ -116,15 +116,15 @@ output "spot_instance_requests_launch_group" {
 }
 output "spot_instance_requests_launch_template" {
   description = "Map of launch_template values across all spot_instance_requests, keyed the same as var.spot_instance_requests"
-  value       = { for k, v in aws_spot_instance_request.spot_instance_requests : k => v.launch_template if v.launch_template != null && length(v.launch_template) > 0 }
+  value       = { for k, v in aws_spot_instance_request.spot_instance_requests : k => one(v.launch_template) if v.launch_template != null && length(v.launch_template) > 0 }
 }
 output "spot_instance_requests_maintenance_options" {
   description = "Map of maintenance_options values across all spot_instance_requests, keyed the same as var.spot_instance_requests"
-  value       = { for k, v in aws_spot_instance_request.spot_instance_requests : k => v.maintenance_options if v.maintenance_options != null && length(v.maintenance_options) > 0 }
+  value       = { for k, v in aws_spot_instance_request.spot_instance_requests : k => one(v.maintenance_options) if v.maintenance_options != null && length(v.maintenance_options) > 0 }
 }
 output "spot_instance_requests_metadata_options" {
   description = "Map of metadata_options values across all spot_instance_requests, keyed the same as var.spot_instance_requests"
-  value       = { for k, v in aws_spot_instance_request.spot_instance_requests : k => v.metadata_options if v.metadata_options != null && length(v.metadata_options) > 0 }
+  value       = { for k, v in aws_spot_instance_request.spot_instance_requests : k => one(v.metadata_options) if v.metadata_options != null && length(v.metadata_options) > 0 }
 }
 output "spot_instance_requests_monitoring" {
   description = "Map of monitoring values across all spot_instance_requests, keyed the same as var.spot_instance_requests"
@@ -168,7 +168,7 @@ output "spot_instance_requests_private_dns" {
 }
 output "spot_instance_requests_private_dns_name_options" {
   description = "Map of private_dns_name_options values across all spot_instance_requests, keyed the same as var.spot_instance_requests"
-  value       = { for k, v in aws_spot_instance_request.spot_instance_requests : k => v.private_dns_name_options if v.private_dns_name_options != null && length(v.private_dns_name_options) > 0 }
+  value       = { for k, v in aws_spot_instance_request.spot_instance_requests : k => one(v.private_dns_name_options) if v.private_dns_name_options != null && length(v.private_dns_name_options) > 0 }
 }
 output "spot_instance_requests_private_ip" {
   description = "Map of private_ip values across all spot_instance_requests, keyed the same as var.spot_instance_requests"
@@ -188,7 +188,7 @@ output "spot_instance_requests_region" {
 }
 output "spot_instance_requests_root_block_device" {
   description = "Map of root_block_device values across all spot_instance_requests, keyed the same as var.spot_instance_requests"
-  value       = { for k, v in aws_spot_instance_request.spot_instance_requests : k => v.root_block_device if v.root_block_device != null && length(v.root_block_device) > 0 }
+  value       = { for k, v in aws_spot_instance_request.spot_instance_requests : k => one(v.root_block_device) if v.root_block_device != null && length(v.root_block_device) > 0 }
 }
 output "spot_instance_requests_secondary_network_interface" {
   description = "Map of secondary_network_interface values across all spot_instance_requests, keyed the same as var.spot_instance_requests"
